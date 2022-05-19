@@ -22,16 +22,7 @@ func main() {
 	}
 
 	for _, ord := range []order.Order{groundOrder, seaOrder, skyOrder} {
-		var logis logistics.Logistics
-
-		switch ord.TypeOfDelivery {
-		case "ground":
-			logis = logistics.NewGroundLogistics()
-		case "sea":
-			logis = logistics.NewSeaLogistics()
-		case "sky":
-			logis = logistics.NewSkyLogistics()
-		}
+		logis := logistics.GetLogisticsByOrderType(ord.TypeOfDelivery)
 
 		transport := logis.CreateTransport()
 
