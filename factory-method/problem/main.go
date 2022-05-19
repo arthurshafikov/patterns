@@ -30,6 +30,8 @@ func main() {
 func deliver(order order.Order) {
 	var text string
 
+	// in this particular case we actually can move this switch into the cycle inside of main() method
+	// but in real programm these switches would be everywhere in different classes etc.
 	switch order.TypeOfDelivery {
 	case "ground":
 		text = transport.NewTruck().DeliverByGround()

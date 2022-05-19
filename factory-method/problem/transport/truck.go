@@ -7,7 +7,7 @@ func NewTruck() *Truck {
 	return &Truck{}
 }
 
-func (t *Truck) DeliverByGround() string { // classes does not follow the same interface
+func (t *Truck) DeliverByGround() string { // classes don't follow the same interface
 	return "Order has been delivered by ground!"
 }
 
