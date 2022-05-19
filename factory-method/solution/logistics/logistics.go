@@ -8,8 +8,8 @@ type Logistics interface {
 	CreateTransport() transport.Transport
 }
 
-func GetLogisticsByOrderType(orderType string) Logistics {
-	switch orderType {
+func GetLogisticsByOrderType(deliveryType string) Logistics {
+	switch deliveryType {
 	case "ground":
 		return NewGroundLogistics()
 	case "sea":
