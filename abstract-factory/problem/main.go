@@ -13,8 +13,9 @@ func main() {
 		"art_deco",
 	}
 
-	for _, order := range orders {
-		switch order {
+	// Normal cases.
+	for _, family := range orders {
+		switch family {
 		case "modern":
 			chair := furniture.NewModernChair()
 			fmt.Printf("Chair has legs: %v\n", chair.HasLegs())
@@ -49,4 +50,21 @@ func main() {
 
 		fmt.Printf("Order was sent...\n\n")
 	}
+
+	NewFurniture()
+}
+
+// New function that was written by new programmer.
+func NewFurniture() {
+	chair := furniture.NewArtDecoChair()
+	fmt.Printf("Chair has legs: %v\n", chair.HasLegs())
+	chair.SitOn()
+
+	sofa := furniture.NewModernSofa() // !!!
+	sofa.LayDown()
+
+	coffeeTable := furniture.NewVictorianCoffeeTable() // !!!
+	coffeeTable.DrinkCoffeeAt()
+
+	// client would be mad if he sees what furniture have we delivered to him.
 }
