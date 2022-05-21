@@ -56,13 +56,13 @@ func withDirectors() {
 	director := NewDirector()
 	director.
 		SetBuilder(houseBuilder).
-		Create(CheapCost).
+		CreateEstate(CheapCost).
 		PrintInfo()
 	// Estate is built in bungalow style, has 2 rooms.
 
 	director.
 		SetBuilder(hostelBuilder).
-		Create(ExpensiveCost).
+		CreateEstate(ExpensiveCost).
 		PrintInfo()
 	// Estate is built in cottage style, has 15 rooms and also has swimming pool, garage, garden, fancy statues.
 }

@@ -12,20 +12,20 @@ const (
 )
 
 type Director struct {
-	builder builders.Builder
+	builder builders.EstateBuilder
 }
 
 func NewDirector() *Director {
 	return &Director{}
 }
 
-func (d *Director) SetBuilder(builder builders.Builder) *Director {
+func (d *Director) SetBuilder(builder builders.EstateBuilder) *Director {
 	d.builder = builder
 
 	return d
 }
 
-func (d *Director) Create(cost string) estates.Estate {
+func (d *Director) CreateEstate(cost string) estates.Estate {
 	switch cost {
 	case CheapCost:
 		return d.builder.
