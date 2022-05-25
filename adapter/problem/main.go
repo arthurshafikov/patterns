@@ -22,30 +22,31 @@ func main() {
 	}
 
 	for _, planet := range planets {
-		var estimateFlyHours, estimateFuelNeeded float64
+		var distance float64
 		switch planet {
 		case "Jupiter":
-			estimateFlyHours = spaceXSpaceship.EstimateFlyHours(metrics.DistanceToTheJupiter())
-			estimateFuelNeeded = spaceXSpaceship.EstimateFuelAmount(metrics.DistanceToTheJupiter())
+			distance = metrics.DistanceToTheJupiter()
 		case "Mars":
-			estimateFlyHours = spaceXSpaceship.EstimateFlyHours(metrics.DistanceToTheMars())
-			estimateFuelNeeded = spaceXSpaceship.EstimateFuelAmount(metrics.DistanceToTheMars())
+			distance = metrics.DistanceToTheMars()
 		case "Sun":
-			km := us_metrics.DistanceToTheSun() * kmInMile
-			estimateFlyHours = spaceXSpaceship.EstimateFlyHours(km)
-			estimateFuelNeeded = spaceXSpaceship.EstimateFuelAmount(km)
+			distance = us_metrics.DistanceToTheSun() * kmInMile
 		case "Moon":
-			km := us_metrics.DistanceToTheMoon() * kmInMile
-			estimateFlyHours = spaceXSpaceship.EstimateFlyHours(km)
-			estimateFuelNeeded = spaceXSpaceship.EstimateFuelAmount(km)
+			distance = us_metrics.DistanceToTheMoon() * kmInMile
 		case "Saturn":
 			// A new programmer came and didn't know about miles convertion and wrote this code:
-			km := us_metrics.DistanceToTheMoon()
-			estimateFlyHours = spaceXSpaceship.EstimateFlyHours(km)
-			estimateFuelNeeded = spaceXSpaceship.EstimateFuelAmount(km)
+			distance = us_metrics.DistanceToTheSaturn()
 			// That's it, the ship would not have enough fuel for this journey and it'd crash.
 		}
+		estimateFlyHours := spaceXSpaceship.EstimateFlyHours(distance)
+		estimateFuelNeeded := spaceXSpaceship.EstimateFuelAmount(distance)
 
 		fmt.Printf("Estimate time to %s is %v hours, fuel needed: %vL\n", planet, estimateFlyHours, estimateFuelNeeded)
+		/*
+			Estimate time to Jupiter is 27824 hours, fuel needed: 1.3912e+07L
+			Estimate time to Mars is 7779 hours, fuel needed: 3.8895e+06L
+			Estimate time to Sun is 5167 hours, fuel needed: 2.5835e+06L
+			Estimate time to Moon is 13 hours, fuel needed: 6500L
+			Estimate time to Saturn is 25753 hours, fuel needed: 1.28765e+07L
+		*/
 	}
 }
