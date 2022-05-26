@@ -1,5 +1,7 @@
 package devices
 
+import "fmt"
+
 type TV struct {
 	enabled bool
 	volume  int
@@ -36,4 +38,8 @@ func (tv TV) GetChannel() int {
 
 func (tv *TV) SetChannel(channel int) {
 	tv.channel = channel
+}
+
+func (tv TV) ShowInfo() {
+	fmt.Printf("TV volume: %v, TV channel: %v\n", tv.volume, tv.channel)
 }

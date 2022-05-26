@@ -1,8 +1,6 @@
 package remotes
 
 import (
-	"fmt"
-
 	"github.com/arthurshafikov/patterns/bridge/problem/devices"
 )
 
@@ -40,6 +38,6 @@ func (r *RemoteTVControl) ChannelUp() {
 	r.tv.SetChannel(r.tv.GetChannel() + 1)
 }
 
-func (r *RemoteRadioControl) ShowInfo() {
-	fmt.Printf("Radio volume: %v, radio channel: %v\n", r.radio.GetVolume(), r.radio.GetChannel())
+func (r *RemoteTVControl) ShowInfo() {
+	r.tv.ShowInfo()
 }

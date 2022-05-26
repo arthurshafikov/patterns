@@ -1,5 +1,7 @@
 package devices
 
+import "fmt"
+
 type Radio struct {
 	enabled bool
 	volume  int
@@ -36,4 +38,8 @@ func (r Radio) GetChannel() int {
 
 func (r *Radio) SetChannel(channel int) {
 	r.channel = channel
+}
+
+func (r Radio) ShowInfo() {
+	fmt.Printf("Radio volume: %v, radio channel: %v\n", r.volume, r.channel)
 }
