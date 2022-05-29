@@ -10,6 +10,10 @@ func main() {
 	// these 2 examples might be anywhere in your program
 	exampleConvertMP4ToOgg()
 	exampleConvertOggToMP4()
+	/*
+		File was converted successfully! Output - some-file.ogg
+		File was converted successfully! Output - some-file.mp4
+	*/
 }
 
 func exampleConvertMP4ToOgg() {
